@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Upload material</h1>
+    <form action="/vehicle-data" role="form" method="post" enctype="multipart/form-data">
+        <span>
+            <label>Upload material:</label> 
+            <input type="file" id="vehicle-data-input" name="vehicle-data-input" accept="application/json" />
+        </span>
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+    <h1>Vehicle data</h1>
+    <input type="text" placeholder="Search...">
+    <table>
+        <thead>
+            <tr>
+                <th id="th-year">Year</th>
+                <th id="th-make">Make</th>
+                <th id="th-model">Model</th>
+                <th id="th-rejection-procentage">Rejection %</th>
+                <th id="th-rejection-reason-1">Rejection reason #1</th>
+                <th id="th-rejection-reason-2">Rejection reason #2</th>
+                <th id="th-rejection-reason-3">Rejection reason #3</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rejection in rejections %}
+                <tr class="bg-dark">
+                    <td>
+                    {{rejection.model_year}} 
+                    </td>
+                    <td>
+                        {{rejection.make}}
+                    </td>
+                    <td>
+                        {{rejection.model}}
+                    </td>
+                    <td>
+                        {{rejection.rejection_precentage}}
+                    </td>
+                    <td>
+                        {{rejection.reason_1}}
+                    </td>
+                    <td>
+                        {{rejection.reason_2}}
+                    </td>
+                    <td>
+                        {{rejection.reason_3}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
