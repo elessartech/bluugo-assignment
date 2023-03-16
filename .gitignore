@@ -1,0 +1,6 @@
+env
+__pycache__
+LICENSE
+.env
+app.db
+venv
