@@ -1,6 +1,26 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    <script type = "text/javascript">
+        window.onload = () => {
+            const searchbar = document.querySelector('#searchbar')
+            searchbar.onkeyup = (event) => {
+                let searchbarVal = event.target.value
+                fetch("/filter?" +  new URLSearchParams({
+                    searchbar_val: searchbarVal
+                }), {
+                    method: "GET"
+                })
+                .then(response => {
+                    return response.text();
+                })
+                .then(html => {
+                    const tableBody = document.querySelector('#tableBody')
+                    tableBody.innerHTML = html
+                })
+            }
+        }
+    </script>
     <h1>Upload material</h1>
     <form action="/vehicle-data" role="form" method="post" enctype="multipart/form-data">
         <span>
@@ -11,7 +31,7 @@
         <button type="submit">Upload</button>
     </form>
     <h1>Vehicle data</h1>
-    <input type="text" placeholder="Search...">
+    <input id="searchbar" type="text" placeholder="Search..."  />
     <table>
         <thead>
             <tr>
@@ -24,11 +44,11 @@
                 <th id="th-rejection-reason-3">Rejection reason #3</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
             {% for rejection in rejections %}
                 <tr class="bg-dark">
                     <td>
-                    {{rejection.model_year}} 
+                        {{rejection.model_year}} 
                     </td>
                     <td>
                         {{rejection.make}}
@@ -37,7 +57,7 @@
                         {{rejection.model}}
                     </td>
                     <td>
-                        {{rejection.rejection_precentage}}
+                        {{rejection.rejection_percentage}}
                     </td>
                     <td>
                         {{rejection.reason_1}}

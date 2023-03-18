@@ -1,0 +1,25 @@
+{% for rejection in rejections %}
+    <tr>
+        <td>
+            {{rejection.model_year}} 
+        </td>
+        <td>
+            {{rejection.make}}
+        </td>
+        <td>
+            {{rejection.model}}
+        </td>
+        <td>
+            {{rejection.rejection_percentage}}
+        </td>
+        <td>
+            {{rejection.reason_1}}
+        </td>
+        <td>
+            {{rejection.reason_2}}
+        </td>
+        <td>
+            {{rejection.reason_3}}
+        </td>
+    </tr>
+{% endfor %}
