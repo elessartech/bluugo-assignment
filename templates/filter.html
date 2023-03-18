@@ -1,25 +1,25 @@
-{% for rejection in rejections %}
+{% for vehicle in vehicles %}
     <tr>
         <td>
-            {{rejection.model_year}} 
+            {{vehicle.model_year}} 
         </td>
         <td>
-            {{rejection.make}}
+            {{vehicle.make}}
         </td>
         <td>
-            {{rejection.model}}
+            {{vehicle.model}}
         </td>
         <td>
-            {{rejection.rejection_percentage}}
+            {{vehicle.rejection_percentage}}
         </td>
         <td>
-            {{rejection.reason_1}}
+            {{vehicle.reason_1}}
         </td>
         <td>
-            {{rejection.reason_2}}
+            {{vehicle.reason_2}}
         </td>
         <td>
-            {{rejection.reason_3}}
+            {{vehicle.reason_3}}
         </td>
     </tr>
 {% endfor %}

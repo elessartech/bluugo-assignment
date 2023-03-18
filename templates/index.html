@@ -22,10 +22,10 @@
         }
     </script>
     <h1>Upload material</h1>
-    <form action="/vehicle-data" role="form" method="post" enctype="multipart/form-data">
+    <form action="/data" role="form" method="post" enctype="multipart/form-data">
         <span>
             <label>Upload material:</label> 
-            <input type="file" id="vehicle-data-input" name="vehicle-data-input" accept="application/json" />
+            <input type="file" id="data" name="data" accept="application/json" />
         </span>
         <br>
         <button type="submit">Upload</button>
@@ -38,35 +38,35 @@
                 <th id="th-year">Year</th>
                 <th id="th-make">Make</th>
                 <th id="th-model">Model</th>
-                <th id="th-rejection-procentage">Rejection %</th>
-                <th id="th-rejection-reason-1">Rejection reason #1</th>
-                <th id="th-rejection-reason-2">Rejection reason #2</th>
-                <th id="th-rejection-reason-3">Rejection reason #3</th>
+                <th id="th-vehicle-procentage">Rejection %</th>
+                <th id="th-vehicle-reason-1">Rejection reason #1</th>
+                <th id="th-vehicle-reason-2">Rejection reason #2</th>
+                <th id="th-vehicle-reason-3">Rejection reason #3</th>
             </tr>
         </thead>
         <tbody id="tableBody">
-            {% for rejection in rejections %}
+            {% for vehicle in vehicles %}
                 <tr class="bg-dark">
                     <td>
-                        {{rejection.model_year}} 
+                        {{vehicle.model_year}} 
                     </td>
                     <td>
-                        {{rejection.make}}
+                        {{vehicle.make}}
                     </td>
                     <td>
-                        {{rejection.model}}
+                        {{vehicle.model}}
                     </td>
                     <td>
-                        {{rejection.rejection_percentage}}
+                        {{vehicle.rejection_percentage}}
                     </td>
                     <td>
-                        {{rejection.reason_1}}
+                        {{vehicle.reason_1}}
                     </td>
                     <td>
-                        {{rejection.reason_2}}
+                        {{vehicle.reason_2}}
                     </td>
                     <td>
-                        {{rejection.reason_3}}
+                        {{vehicle.reason_3}}
                     </td>
                 </tr>
             {% endfor %}

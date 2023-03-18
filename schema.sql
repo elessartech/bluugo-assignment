@@ -1,4 +1,4 @@
-create table rejections (
+create table vehicle (
     id SERIAL PRIMARY KEY,
     model_year INTEGER NOT NULL,
     make TEXT NOT NULL,
