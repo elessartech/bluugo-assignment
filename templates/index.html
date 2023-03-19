@@ -1,76 +1,64 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <script type = "text/javascript">
-        window.onload = () => {
-            const searchbar = document.querySelector('#searchbar')
-            searchbar.onkeyup = (event) => {
-                let searchbarVal = event.target.value
-                fetch("/filter?" +  new URLSearchParams({
-                    searchbar_val: searchbarVal
-                }), {
-                    method: "GET"
-                })
-                .then(response => {
-                    return response.text();
-                })
-                .then(html => {
-                    const tableBody = document.querySelector('#tableBody')
-                    tableBody.innerHTML = html
-                })
-            }
-        }
-    </script>
-    <h1>Upload material</h1>
-    <form action="/data" role="form" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <span>
-            <label>Upload material:</label> 
-            <input type="file" id="data" name="data" accept="application/json" />
-        </span>
-        <br>
-        <button type="submit">Upload</button>
-    </form>
-    <h1>Vehicle data</h1>
-    <input id="searchbar" type="text" placeholder="Search..."  />
-    <table>
-        <thead>
-            <tr>
-                <th id="th-year">Year</th>
-                <th id="th-make">Make</th>
-                <th id="th-model">Model</th>
-                <th id="th-vehicle-procentage">Rejection %</th>
-                <th id="th-vehicle-reason-1">Rejection reason #1</th>
-                <th id="th-vehicle-reason-2">Rejection reason #2</th>
-                <th id="th-vehicle-reason-3">Rejection reason #3</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-            {% for vehicle in vehicles %}
-                <tr class="bg-dark">
-                    <td>
-                        {{vehicle.model_year}} 
-                    </td>
-                    <td>
-                        {{vehicle.make}}
-                    </td>
-                    <td>
-                        {{vehicle.model}}
-                    </td>
-                    <td>
-                        {{vehicle.rejection_percentage}}
-                    </td>
-                    <td>
-                        {{vehicle.reason_1}}
-                    </td>
-                    <td>
-                        {{vehicle.reason_2}}
-                    </td>
-                    <td>
-                        {{vehicle.reason_3}}
-                    </td>
+    <section class="wrap">
+        <h1>Upload material</h1>
+        <form action="/data" role="form" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <figure class="file-input-wrap">
+                <label class="file-input-label" for="data">Click here to choose material</label> 
+                <span id="file-chosen">No file chosen</span>
+                <input type="file" id="data" name="data" accept="application/json" hidden />
+                <button class="file-input-submit hvr-sweep-to-top" type="submit">Upload</button>
+            </figure>
+        </form>
+    </section>
+    <section class="wrap">
+        <h1>Vehicle data</h1>
+        <figure class="searchbar-container">
+            <input id="searchbar" type="text" placeholder="Search..."  />
+        </figure>
+    </section>
+    <section class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th id="th-year">Year</th>
+                    <th id="th-make">Make</th>
+                    <th id="th-model">Model</th>
+                    <th id="th-vehicle-procentage">Rejection %</th>
+                    <th id="th-vehicle-reason-1">Rejection reason #1</th>
+                    <th id="th-vehicle-reason-2">Rejection reason #2</th>
+                    <th id="th-vehicle-reason-3">Rejection reason #3</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody id="tableBody">
+                {% for vehicle in vehicles %}
+                    <tr class="bg-dark">
+                        <td>
+                            {{vehicle.model_year}} 
+                        </td>
+                        <td>
+                            {{vehicle.make}}
+                        </td>
+                        <td>
+                            {{vehicle.model}}
+                        </td>
+                        <td>
+                            {{vehicle.rejection_percentage}}
+                        </td>
+                        <td>
+                            {{vehicle.reason_1}}
+                        </td>
+                        <td>
+                            {{vehicle.reason_2}}
+                        </td>
+                        <td>
+                            {{vehicle.reason_3}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
 {% endblock %}
