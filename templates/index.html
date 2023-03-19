@@ -23,6 +23,7 @@
     </script>
     <h1>Upload material</h1>
     <form action="/data" role="form" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <span>
             <label>Upload material:</label> 
             <input type="file" id="data" name="data" accept="application/json" />
