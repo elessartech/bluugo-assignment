@@ -1,7 +1,7 @@
 import json
 import queries
 from app import app
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, abort
 
 
 @app.route("/")
@@ -20,7 +20,10 @@ def filter():
 @app.route("/data", methods=["POST"])
 def save_data():
     data_file = request.files["data"]
-    vehicle_data = json.load(data_file)
+    try:
+        vehicle_data = json.load(data_file)
+    except ValueError:
+        abort(ValueError)
     for data_obj in vehicle_data:
         model_year = int(data_obj["model_year"])
         make = data_obj["make"]
