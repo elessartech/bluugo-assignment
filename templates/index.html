@@ -23,18 +23,18 @@
         <table>
             <thead>
                 <tr>
-                    <th id="th-year">Year</th>
-                    <th id="th-make">Make</th>
-                    <th id="th-model">Model</th>
-                    <th id="th-vehicle-procentage">Rejection %</th>
-                    <th id="th-vehicle-reason-1">Rejection reason #1</th>
-                    <th id="th-vehicle-reason-2">Rejection reason #2</th>
-                    <th id="th-vehicle-reason-3">Rejection reason #3</th>
+                    <th>Year</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Rejection %</th>
+                    <th>Rejection reason #1</th>
+                    <th>Rejection reason #2</th>
+                    <th>Rejection reason #3</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
                 {% for vehicle in vehicles %}
-                    <tr class="bg-dark">
+                    <tr>
                         <td>
                             {{vehicle.model_year}} 
                         </td>
