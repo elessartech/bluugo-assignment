@@ -4,6 +4,11 @@ from app import app
 from flask import render_template, redirect, request, abort
 
 
+@app.errorhandler(415)
+def unsupported_media_type(error):
+    return render_template("415.html"), 415
+
+
 @app.route("/")
 def index():
     vehicles = queries.get_vehicles()
@@ -22,8 +27,8 @@ def save_data():
     data_file = request.files["data"]
     try:
         vehicle_data = json.load(data_file)
-    except ValueError:
-        abort(ValueError)
+    except:
+        abort(415)
     for data_obj in vehicle_data:
         model_year = data_obj["model_year"]
         make = data_obj["make"]
