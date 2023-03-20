@@ -16,14 +16,15 @@ window.onload = () => {
             tableBody.innerHTML = html
         })
     }
-    // displaying the name of the file to be uploaded
     const dataInput = document.querySelector('#data');
     const fileChosen = document.querySelector('#file-chosen');
     const fileInputSubmitBtn = document.querySelector('.file-input-submit')
     dataInput.onchange = () => {
         const uploadedFile = dataInput.files[0]
         if (uploadedFile) {
+            // displaying the name of the file to be uploaded
             fileChosen.textContent = uploadedFile.name
+            // making the submit button active and applying the sweep effect
             fileInputSubmitBtn.removeAttribute('disabled')
             fileInputSubmitBtn.classList.add('hvr-sweep-to-top');
         }
