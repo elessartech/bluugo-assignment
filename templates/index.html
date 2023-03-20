@@ -9,7 +9,7 @@
                 <label class="file-input-label" for="data">Click here to choose material</label> 
                 <span id="file-chosen">No file chosen</span>
                 <input type="file" id="data" name="data" accept="application/json" hidden />
-                <button class="file-input-submit hvr-sweep-to-top" type="submit">Upload</button>
+                <button class="file-input-submit" type="submit" disabled>Upload</button>
             </figure>
         </form>
     </section>
@@ -32,7 +32,7 @@
                     <th>Rejection reason #3</th>
                 </tr>
             </thead>
-            <tbody id="tableBody">
+            <tbody id="table-body">
                 {% for vehicle in vehicles %}
                     <tr>
                         <td>

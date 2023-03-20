@@ -78,6 +78,13 @@ main {
     background-color: #1E1E1E;
 }
 
+.file-input-submit:disabled,
+.file-input-submit[disabled]{
+  border: 1px solid #323232;
+  background-color: #323232;
+  color: #1E1E1E;
+}
+
 .searchbar-container {
     margin: 1.1em auto;
 }

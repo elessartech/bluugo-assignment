@@ -25,10 +25,10 @@ def save_data():
     except ValueError:
         abort(ValueError)
     for data_obj in vehicle_data:
-        model_year = int(data_obj["model_year"])
+        model_year = data_obj["model_year"]
         make = data_obj["make"]
         model = data_obj["model"]
-        rejection_percentage = float(data_obj["rejection_percentage"].replace(",", "."))
+        rejection_percentage = data_obj["rejection_percentage"]
         reason_1 = data_obj["reason_1"]
         reason_2 = data_obj["reason_2"]
         reason_3 = data_obj["reason_3"]
