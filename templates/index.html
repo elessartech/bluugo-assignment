@@ -20,45 +20,47 @@
         </figure>
     </section>
     <section class="wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>Year</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Rejection %</th>
-                    <th>Rejection reason #1</th>
-                    <th>Rejection reason #2</th>
-                    <th>Rejection reason #3</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                {% for vehicle in vehicles %}
+        <div class="table-wrap">
+            <table>
+                <thead>
                     <tr>
-                        <td>
-                            {{vehicle.model_year}} 
-                        </td>
-                        <td>
-                            {{vehicle.make}}
-                        </td>
-                        <td>
-                            {{vehicle.model}}
-                        </td>
-                        <td>
-                            {{vehicle.rejection_percentage}}
-                        </td>
-                        <td>
-                            {{vehicle.reason_1}}
-                        </td>
-                        <td>
-                            {{vehicle.reason_2}}
-                        </td>
-                        <td>
-                            {{vehicle.reason_3}}
-                        </td>
+                        <th>Year</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Rejection %</th>
+                        <th>Rejection reason #1</th>
+                        <th>Rejection reason #2</th>
+                        <th>Rejection reason #3</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody id="table-body">
+                    {% for vehicle in vehicles %}
+                        <tr>
+                            <td>
+                                {{vehicle.model_year}} 
+                            </td>
+                            <td>
+                                {{vehicle.make}}
+                            </td>
+                            <td>
+                                {{vehicle.model}}
+                            </td>
+                            <td>
+                                {{vehicle.rejection_percentage}}
+                            </td>
+                            <td>
+                                {{vehicle.reason_1}}
+                            </td>
+                            <td>
+                                {{vehicle.reason_2}}
+                            </td>
+                            <td>
+                                {{vehicle.reason_3}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </section>
 {% endblock %}

@@ -51,6 +51,7 @@ main {
     cursor: pointer;
     margin: auto 0;
     max-width: 220px;
+    border-radius: 3px;
 }
 
 #file-chosen{
@@ -106,6 +107,10 @@ main {
     color: #606060;
 }
 
+.table-wrap {
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -125,4 +130,14 @@ table th {
     border-bottom: 1px solid #00bdf3;
     padding-bottom: 10px;
 
+}
+
+@media only screen and (max-width: 600px) {
+    .file-input-label {
+        padding: .25em;
+    }
+
+    #searchbar {
+        width: 100%;
+    }
 }
