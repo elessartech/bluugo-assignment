@@ -4,7 +4,7 @@
 
 ### Docker 
 
-The app can be installed using Docker. In order to do that one must have [Docker]('https://docs.docker.com/get-docker/') and [docker-compose]('https://docs.docker.com/compose/install/') installed on the machine. 
+The app can be installed using Docker. In order to do that one must have [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) installed on the machine. 
 - Go to the root directory of the app and execute
 ```
 docker-compose up
@@ -14,10 +14,10 @@ docker-compose up
 
 ### Local
 
-- Install and configure PostgresQL. Instructions can be found [here]('https://www.postgresql.org/download/').
+- Install and configure PostgresQL. Instructions can be found [here](https://www.postgresql.org/download/).
 - Clone the repository `git clone https://github.com/elessartech/bluugo-assignment.git`
 - Head over to the root directory
-- SQL schemas used for the app can be found at `schema.sql`. Define tables by either PostgreSQL-CI or pgAdmin. [Instructions can be found here]('https://www.javatpoint.com/postgresql-create-table').
+- SQL schemas used for the app can be found at `schema.sql`. Define tables by either PostgreSQL-CI or pgAdmin. [Instructions can be found here](https://www.javatpoint.com/postgresql-create-table).
 - Create virtual environment `python3 -m venv venv`
 - Activate it `source venv/bin/activate` 
 - Install all required packages `pip install -r requirements.txt`
@@ -34,7 +34,7 @@ docker-compose up
 
 ## Functionality 
 
-- ✅User must be able to upload a JSON file [vehicle_data.json]('https://tracking.cloud/documents/2/vehicle_data.json) via form.
+- ✅User must be able to upload a JSON file [vehicle_data.json](https://tracking.cloud/documents/2/vehicle_data.json) via form.
 
 - ✅Uploaded data must be stored in a relational database. 
 
