@@ -23,7 +23,7 @@ docker-compose up
 - Install all required packages `pip install -r requirements.txt`
 - Create `.env`-file and add there required variables:
 
-| Key | value |
+| Key | Value |
 | ------ | ------ |
 | DATABASE_URL  | postgresql://${username}:${password}@${host}:${port}/${database} |
 | SECRET_KEY | ${YOUR_SECRET_KEY} |
