@@ -5,6 +5,7 @@
 ### Docker 
 
 The app can be installed using Docker. In order to do that one must have [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) installed on the machine. 
+- Clone the repository `git clone https://github.com/elessartech/bluugo-assignment.git`
 - Go to the root directory of the app and execute
 ```
 docker-compose up
@@ -28,7 +29,7 @@ docker-compose up
 | DATABASE_URL  | postgresql://${username}:${password}@${host}:${port}/${database} |
 | SECRET_KEY | ${YOUR_SECRET_KEY} |
 | FLASK_APP | app |
-| FLASK_DEBUG | True/False |
+| FLASK_DEBUG | `True`/`False` |
 - Run `flask run` to run the app
 - Go to `http://localhost:5000` in your browser.
 
